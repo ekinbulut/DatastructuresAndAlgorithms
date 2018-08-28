@@ -84,5 +84,56 @@ namespace DatastructuresAndAlgorithms
 
             return arr;
         }
+
+        public static int[] MergeSort(int[] arr)
+        {
+            Sort(arr, 0, arr.Length);
+
+            return arr;
+        }
+
+        static void Sort(int[] arr, int low, int high)
+        {
+            int n = high - low;
+
+            if (n <= 1)
+            {
+                return;
+            }
+
+            int mid = low + n / 2;
+
+            Sort(arr, low, mid);
+            Sort(arr, mid, high);
+
+            int[] aux = new int[n];
+
+            int i = low, j = mid;
+
+            for (int k = 0; k < n; k++)
+            {
+                if (i == mid)
+                {
+                    aux[k] = arr[j++];
+                }
+                else if (j == high)
+                {
+                    aux[k] = arr[i++];
+                }
+                else if (arr[j].CompareTo(arr[i]) < 0)
+                {
+                    aux[k] = arr[j++];
+                }
+                else
+                {
+                    aux[k] = arr[i++];
+                }
+            }
+
+            for (int k = 0; k < n; k++)
+            {
+                arr[low + k] = aux[k];
+            }
+        }
     }
 }

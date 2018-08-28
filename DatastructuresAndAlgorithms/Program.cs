@@ -17,21 +17,13 @@ namespace DatastructuresAndAlgorithms
             //var result = Algorithm.SelectionSort(arr);
             //var result = Algorithm.BubbleSort(arr);
 
+            var result = Algorithm.MergeSort(arr);
+
             Console.WriteLine("Result : " + String.Join<int>(" ",arr));
 
 
             var binarytree = Datastructures.GetBinaryTree();
-
-            //for (int i = 50; i < 100; i++)
-            //{
-            //    binarytree.InsertData(i);
-            //}
-
-            //for (int i = 50; i > 0; i--)
-            //{
-            //    binarytree.InsertData(i);
-            //}
-
+            
             binarytree.InsertData(5);
             binarytree.InsertData(10);
             binarytree.InsertData(23);
@@ -39,6 +31,22 @@ namespace DatastructuresAndAlgorithms
             binarytree.InsertData(2);
             binarytree.InsertData(4);
             binarytree.InsertData(45);
+
+            binarytree.SearchNode(2);
+
+            var linkedList = Datastructures.GetLinkList();
+
+            linkedList.InsertFirst(5,10);
+            linkedList.InsertFirst(6,25);
+            linkedList.InsertFirst(9,48);
+
+            var key = linkedList.Find(6);
+            
+            linkedList.Print();
+
+            linkedList.Delete(6);
+
+            linkedList.Print();
 
 
             Console.ReadLine();
